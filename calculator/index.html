@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Scientific Calculator</title>
+  <meta name="description" content="A scientific calculator with trigonometry, logarithms, factorials, memory and history.">
+  <meta name="theme-color" content="#14122b">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>Scientific <span>Calculator</span></h1>
+      <div class="top-actions">
+        <button type="button" class="icon-btn" id="history-toggle" aria-expanded="false" aria-controls="history" title="History">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5M12 7v5l3 2"/></svg>
+          <span class="sr-only">History</span>
+        </button>
+        <button type="button" class="icon-btn" id="theme-toggle" title="Switch theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <span class="sr-only">Toggle theme</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="calc" aria-label="Calculator">
+      <div class="display">
+        <div class="indicators">
+          <button type="button" class="chip chip-btn" id="angle" title="Angle unit (click to change)">DEG</button>
+          <span class="chip" id="ind-2nd" hidden>2nd</span>
+          <span class="chip" id="ind-hyp" hidden>HYP</span>
+          <span class="chip" id="ind-mem" hidden>M</span>
+        </div>
+        <input id="expr" type="text" inputmode="none" autocomplete="off" autocapitalize="off"
+               autocorrect="off" spellcheck="false" aria-label="Expression" placeholder="0">
+        <div id="result" class="result" role="status" aria-live="polite">0</div>
+      </div>
+
+      <div class="memory" role="group" aria-label="Memory">
+        <button type="button" data-mem="mc">MC</button>
+        <button type="button" data-mem="mr">MR</button>
+        <button type="button" data-mem="m+">M+</button>
+        <button type="button" data-mem="m-">M&minus;</button>
+        <button type="button" data-mem="ms">MS</button>
+      </div>
+
+      <div class="keys">
+        <div id="sci" class="grid sci" role="group" aria-label="Scientific functions"></div>
+        <div id="pad" class="grid pad" role="group" aria-label="Keypad"></div>
+      </div>
+    </section>
+
+    <p class="hint">Keyboard: type expressions, <kbd>Enter</kbd> to calculate, <kbd>Esc</kbd> to clear. Click the result to copy it.</p>
+  </main>
+
+  <aside id="history" class="history" aria-label="History" hidden>
+    <div class="history-head">
+      <h2>History</h2>
+      <button type="button" class="link-btn" id="history-clear">Clear</button>
+      <button type="button" class="icon-btn" id="history-close" title="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <span class="sr-only">Close history</span>
+      </button>
+    </div>
+    <ul id="history-list"></ul>
+  </aside>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">This calculator needs JavaScript.</p></noscript>
+
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

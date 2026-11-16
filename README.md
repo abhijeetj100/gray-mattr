@@ -1,3 +1,21 @@
+# Scientific calculator
+
+A dependency-free scientific calculator web app in `calculator/`.
+
+```sh
+npm start        # serves http://localhost:8080 (or just open calculator/index.html)
+npm test         # engine unit tests (Node 18+)
+```
+
+- Operators: `+ − × ÷ ^`, `%`, `!` (also non-integers via gamma), `mod`, `nPr`, `nCr`, `root` (`3 root 27`), implicit multiplication (`2π`, `3(4+1)`), auto-closed parentheses
+- Functions: `sin cos tan` and inverses, hyperbolic variants (`2nd` / `hyp` keys), `log ln √ ∛ |x| ⌊x⌋ ⌈x⌉ 10ˣ eˣ 1/x`, `EXP` notation, `π`, `e`, `Ans`
+- DEG / RAD / GRAD modes (exact results at multiples of 90°), memory (MC MR M+ M− MS), history, light/dark theme, keyboard input
+- Errors are reported, not crashed on: `Cannot divide by zero`, `Invalid input` (e.g. `√(−1)`, `ln(0)`, `asin(2)`), `Undefined` (`tan(90°)`, `0^0`), `Overflow` (`171!`), `Syntax error`
+
+The parser lives in `calculator/engine.js` (UI-independent, covered by `calculator/engine.test.js`); `app.js` is the UI.
+
+---
+
 # Claude repo template
 
 A starting point for new repos with Claude Code wired in through GitHub
