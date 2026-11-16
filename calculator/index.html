@@ -24,6 +24,7 @@
       </div>
     </header>
 
+    <div class="layout">
     <section class="calc" aria-label="Calculator">
       <div class="display">
         <div class="indicators">
@@ -51,20 +52,21 @@
       </div>
     </section>
 
+    <aside id="history" class="history" aria-label="History" hidden>
+      <div class="history-head">
+        <h2>History</h2>
+        <button type="button" class="link-btn" id="history-clear">Clear</button>
+        <button type="button" class="icon-btn" id="history-close" title="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          <span class="sr-only">Close history</span>
+        </button>
+      </div>
+      <ul id="history-list"></ul>
+    </aside>
+    </div>
+
     <p class="hint">Keyboard: type expressions, <kbd>Enter</kbd> to calculate, <kbd>Esc</kbd> to clear. Click the result to copy it.</p>
   </main>
-
-  <aside id="history" class="history" aria-label="History" hidden>
-    <div class="history-head">
-      <h2>History</h2>
-      <button type="button" class="link-btn" id="history-clear">Clear</button>
-      <button type="button" class="icon-btn" id="history-close" title="Close">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-        <span class="sr-only">Close history</span>
-      </button>
-    </div>
-    <ul id="history-list"></ul>
-  </aside>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <noscript><p class="noscript">This calculator needs JavaScript.</p></noscript>
