@@ -235,6 +235,20 @@ kbd {
 .h-expr { display: block; font-size: 0.82rem; color: var(--muted); word-break: break-all; font-family: ui-monospace, Menlo, Consolas, monospace; }
 .h-result { display: block; font-size: 1.15rem; font-weight: 600; font-family: ui-monospace, Menlo, Consolas, monospace; word-break: break-all; }
 
+/* ---- side-by-side layout on wide screens ---- */
+.layout { display: block; }
+
+@media (min-width: 1000px) {
+  .app { max-width: 1120px; }
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 20px; align-items: stretch; }
+  #history-toggle, #history-close { display: none; }
+  .history, .history[hidden] {
+    display: flex; position: static; width: auto; max-height: 720px;
+    border: 1px solid var(--card-border); border-radius: 26px;
+    background: var(--card); box-shadow: var(--shadow); animation: none;
+  }
+}
+
 /* ---- toast ---- */
 .toast {
   position: fixed; left: 50%; bottom: 28px; z-index: 20;

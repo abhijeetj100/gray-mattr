@@ -188,7 +188,13 @@
   function beginInput(kind) {
     if (!state.justEvaluated) return;
     state.justEvaluated = false;
-    exprEl.value = kind === 'op' ? 'Ans' : '';
+    exprEl.value = kind === 'op' ? answerText() : '';
+  }
+
+  /** The last answer written out as a number, so the expression shows the exact value being used. */
+  function answerText() {
+    const text = format(state.ans, 15).replace('-', '−');
+    return state.ans < 0 ? `(${text})` : text;
   }
 
   function insert(text) {
